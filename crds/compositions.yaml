@@ -1,0 +1,42 @@
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.high-co2.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: us-east-2
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.low-co2.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: low
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: us-east-1

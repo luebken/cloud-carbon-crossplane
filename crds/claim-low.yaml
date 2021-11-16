@@ -1,0 +1,9 @@
+apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+kind: Bucket
+metadata:
+  namespace: default
+  name: my-low-carbon-bucket
+spec:
+  compositionSelector:
+    matchLabels:
+      carbon-footprint: low
