@@ -19,6 +19,10 @@ spec:
           forProvider:
             acl: public-read-write
             locationConstraint: us-east-2
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -40,3 +44,7 @@ spec:
           forProvider:
             acl: public-read-write
             locationConstraint: us-east-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn

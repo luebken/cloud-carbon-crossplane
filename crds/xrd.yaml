@@ -18,11 +18,8 @@ spec:
       openAPIV3Schema:
         type: object
         properties:
-          spec:
+          status:
             type: object
             properties:
-              parameters:
-                type: object
-                properties:
-                  carbon-footprint:
-                    type: string
+              arn:
+                type: string
