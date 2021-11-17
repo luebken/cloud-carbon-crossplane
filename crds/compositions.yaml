@@ -1,10 +1,376 @@
+
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
-  name: xbuckets.high-co2.aws.storage.cloudcarbonfootprint.org
+  name: xbuckets.eu-north-1.aws.storage.cloudcarbonfootprint.org
   labels:
-    carbon-footprint: high
+    carbon-footprint: very-low
+    co2e: "0.000008000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: eu-north-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.eu-west-3.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: low
+    co2e: "0.000052000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: eu-west-3
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.sa-east-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: low
+    co2e: "0.000074000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: sa-east-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.ca-central-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: low
+    co2e: "0.000130000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: ca-central-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.eu-west-2.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000228000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: eu-west-2
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.eu-south-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000233000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: eu-south-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.eu-west-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000316000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: eu-west-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.eu-central-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000338000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: eu-central-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.us-west-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000350861"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: us-west-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.us-west-2.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000350861"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: us-west-2
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.us-gov-west-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000350861"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: us-gov-west-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.ap-southeast-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000408500"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: ap-southeast-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.us-east-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000415755"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: us-east-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.us-gov-east-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000415755"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: us-gov-east-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.us-east-2.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: medium
+    co2e: "0.000440187"
     provider: aws
 spec:
   compositeTypeRef:
@@ -27,9 +393,10 @@ spec:
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
-  name: xbuckets.low-co2.aws.storage.cloudcarbonfootprint.org
+  name: xbuckets.ap-northeast-2.aws.storage.cloudcarbonfootprint.org
   labels:
-    carbon-footprint: low
+    carbon-footprint: high
+    co2e: "0.000500000"
     provider: aws
 spec:
   compositeTypeRef:
@@ -43,7 +410,215 @@ spec:
         spec:
           forProvider:
             acl: public-read-write
-            locationConstraint: us-east-1
+            locationConstraint: ap-northeast-2
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.ap-northeast-3.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000506000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: ap-northeast-3
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.ap-northeast-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000506000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: ap-northeast-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.cn-north-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000555000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: cn-north-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.cn-northwest-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000555000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: cn-northwest-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.ap-south-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000708000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: ap-south-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.me-south-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000732000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: me-south-1
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.ap-southeast-2.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000790000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: ap-southeast-2
+      patches:
+        - type: ToCompositeFieldPath
+          fromFieldPath: status.atProvider.arn
+          toFieldPath: status.arn
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xbuckets.ap-east-1.aws.storage.cloudcarbonfootprint.org
+  labels:
+    carbon-footprint: high
+    co2e: "0.000810000"
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+    kind: XBuckets
+  resources:
+    - name: bucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: public-read-write
+            locationConstraint: ap-east-1
       patches:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn

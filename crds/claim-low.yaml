@@ -6,4 +6,4 @@ metadata:
 spec:
   compositionSelector:
     matchLabels:
-      carbon-footprint: low
+      carbon-footprint: very-low
