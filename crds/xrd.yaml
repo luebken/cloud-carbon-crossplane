@@ -23,3 +23,7 @@ spec:
             properties:
               arn:
                 type: string
+    additionalPrinterColumns:
+    - name: ARN
+      type: string
+      jsonPath: .status.arn
