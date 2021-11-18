@@ -1,9 +1,7 @@
 # Cloud Carbon Crossplane
 
 ## Use-Case
-As an application developer I would like run my S3 buckets with a low carbon footprint because it's the right thing to-do.
-
-Sure here you go: 
+As an application developer I would like run my S3 buckets with a low carbon footprint because it's the right thing to-do. Sure here you go: 
 ```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
@@ -18,10 +16,10 @@ spec:
 EOF
 ```
 
-## How it Works**
-In a naive implementation, the platform team could provide [several compositions](crds/compositions.yaml) which have a `co2e`([cloud-carbon-coefficients](https://github.com/cloud-carbon-footprint/cloud-carbon-coefficients/tree/main/data) and `carbon-footprint` property with basic categories like `very-low`, `low`, `medium` and `high` based on the `co2e` value. The label `carbon-footprint` could be used as a composition selector.
+## How it Works
+In a naive implementation, the platform team could provide [several compositions](crds/compositions.yaml) which have a `co2e` value based on [cloud-carbon-coefficients](https://github.com/cloud-carbon-footprint/cloud-carbon-coefficients/tree/main/data) and `carbon-footprint` property with basic categories like `very-low`, `low`, `medium` and `high` based on the `co2e` value. The label `carbon-footprint` can than be used as a composition selector and the `co2e` value could be served for verification and analysis.
 
-A more advanced would allow weighted factors between region and cloud-carbon-coefficients and possibly other properties. In the end, the platform should optimize for low carbon footprint per default.
+A more advanced version could allow weighted factors between region and cloud-carbon-coefficients and possibly other properties. In the end, the platform should optimize for low carbon footprint per default.
 
 ## Naive implementation
 
