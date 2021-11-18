@@ -14,6 +14,10 @@ spec:
     matchLabels:
       carbon-footprint: very-low
 EOF
+
+kubectl get buckets my-low-carbon-bucket
+NAME                   ARN                                             CO2E          READY   CONNECTION-SECRET   AGE
+my-low-carbon-bucket   arn:aws:s3:::my-low-carbon-bucket-123-123       0.000008000   True                        10m
 ```
 
 ## How it Works
