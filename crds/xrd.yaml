@@ -23,7 +23,12 @@ spec:
             properties:
               arn:
                 type: string
+              co2e:
+                type: string
     additionalPrinterColumns:
     - name: ARN
       type: string
       jsonPath: .status.arn
+    - name: CO2e
+      type: string
+      jsonPath: .status.co2e

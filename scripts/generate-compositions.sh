@@ -24,6 +24,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: \"$co2e\"
         spec:
           forProvider:
             acl: public-read-write
@@ -31,5 +34,8 @@ spec:
       patches:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
-          toFieldPath: status.arn" >> ../crds/compositions.yaml
+          toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels[\"co2e\"]
+          toFieldPath: status.co2e" >> ../crds/compositions.yaml
 done < aws.csv

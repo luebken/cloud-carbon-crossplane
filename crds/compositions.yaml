@@ -17,6 +17,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000008000"
         spec:
           forProvider:
             acl: public-read-write
@@ -25,6 +28,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -43,6 +49,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000052000"
         spec:
           forProvider:
             acl: public-read-write
@@ -51,6 +60,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -69,6 +81,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000074000"
         spec:
           forProvider:
             acl: public-read-write
@@ -77,6 +92,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -95,6 +113,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000130000"
         spec:
           forProvider:
             acl: public-read-write
@@ -103,6 +124,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -121,6 +145,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000228000"
         spec:
           forProvider:
             acl: public-read-write
@@ -129,6 +156,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -147,6 +177,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000233000"
         spec:
           forProvider:
             acl: public-read-write
@@ -155,6 +188,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -173,6 +209,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000316000"
         spec:
           forProvider:
             acl: public-read-write
@@ -181,6 +220,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -199,6 +241,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000338000"
         spec:
           forProvider:
             acl: public-read-write
@@ -207,6 +252,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -225,6 +273,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000350861"
         spec:
           forProvider:
             acl: public-read-write
@@ -233,6 +284,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -251,6 +305,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000350861"
         spec:
           forProvider:
             acl: public-read-write
@@ -259,6 +316,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -277,6 +337,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000350861"
         spec:
           forProvider:
             acl: public-read-write
@@ -285,6 +348,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -303,6 +369,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000408500"
         spec:
           forProvider:
             acl: public-read-write
@@ -311,6 +380,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -329,6 +401,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000415755"
         spec:
           forProvider:
             acl: public-read-write
@@ -337,6 +412,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -355,6 +433,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000415755"
         spec:
           forProvider:
             acl: public-read-write
@@ -363,6 +444,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -381,6 +465,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000440187"
         spec:
           forProvider:
             acl: public-read-write
@@ -389,6 +476,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -407,6 +497,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000500000"
         spec:
           forProvider:
             acl: public-read-write
@@ -415,6 +508,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -433,6 +529,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000506000"
         spec:
           forProvider:
             acl: public-read-write
@@ -441,6 +540,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -459,6 +561,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000506000"
         spec:
           forProvider:
             acl: public-read-write
@@ -467,6 +572,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -485,6 +593,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000555000"
         spec:
           forProvider:
             acl: public-read-write
@@ -493,6 +604,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -511,6 +625,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000555000"
         spec:
           forProvider:
             acl: public-read-write
@@ -519,6 +636,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -537,6 +657,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000708000"
         spec:
           forProvider:
             acl: public-read-write
@@ -545,6 +668,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -563,6 +689,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000732000"
         spec:
           forProvider:
             acl: public-read-write
@@ -571,6 +700,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -589,6 +721,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000790000"
         spec:
           forProvider:
             acl: public-read-write
@@ -597,6 +732,9 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e
 ---
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
@@ -615,6 +753,9 @@ spec:
       base:
         apiVersion: s3.aws.crossplane.io/v1beta1
         kind: Bucket
+        metadata:
+          labels:
+            co2e: "0.000810000"
         spec:
           forProvider:
             acl: public-read-write
@@ -623,3 +764,6 @@ spec:
         - type: ToCompositeFieldPath
           fromFieldPath: status.atProvider.arn
           toFieldPath: status.arn
+        - type: ToCompositeFieldPath
+          fromFieldPath: metadata.labels["co2e"]
+          toFieldPath: status.co2e

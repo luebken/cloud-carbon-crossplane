@@ -1,0 +1,9 @@
+apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+kind: Bucket
+metadata:
+  namespace: default
+  name: my-aws-bucket-2
+spec:
+  compositionSelector:
+    matchLabels:
+      provider: aws
