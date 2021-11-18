@@ -1,12 +1,25 @@
 # Cloud Carbon Crossplane
 
 ## Use-Case
-As an application developer 
-I would like to have my infrastructure optimized for low carbon footprint
-because it's the right thing to-do.
+As an application developer I would like run my S3 buckets with a low carbon footprint because it's the right thing to-do.
+
+Sure here you go: 
+```yaml
+cat <<EOF | kubectl apply -f -
+apiVersion: storage.cloudcarbonfootprint.org/v1alpha1
+kind: Bucket
+metadata:
+  namespace: default
+  name: my-low-carbon-bucket
+spec:
+  compositionSelector:
+    matchLabels:
+      carbon-footprint: very-low
+EOF
+```
 
 ## How it Works**
-In a naive implementation, the platform team could provide several XRs which have a `carbon-footprint` label available as a composition selector. They could start with `low`, `medium`, `high` category based on the [cloud-carbon-coefficients](https://github.com/cloud-carbon-footprint/cloud-carbon-coefficients/tree/main/data). 
+In a naive implementation, the platform team could provide [several compositions](crds/compositions.yaml) which have a `co2e`([cloud-carbon-coefficients](https://github.com/cloud-carbon-footprint/cloud-carbon-coefficients/tree/main/data) and `carbon-footprint` property with basic categories like `very-low`, `low`, `medium` and `high` based on the `co2e` value. The label `carbon-footprint` could be used as a composition selector.
 
 A more advanced would allow weighted factors between region and cloud-carbon-coefficients and possibly other properties. In the end, the platform should optimize for low carbon footprint per default.
 
@@ -15,12 +28,7 @@ A more advanced would allow weighted factors between region and cloud-carbon-coe
 Pre-requiste: Have [Crossplane](https://crossplane.io/docs/v1.5/) installed with AWS configured.
 
 ```sh
-# watch most important Crossplane resources:
-watch kubectl get compositions,managed,buckets,xbuckets,xrd
-```
-
-```sh
-# Install the XRD
+# Install the XRD which defines the schema of our new type
 kubectl create -f crds/xrd.yaml
 # Verify
 kubectl get xrds
@@ -28,24 +36,23 @@ NAME                                        ESTABLISHED   OFFERED   AGE
 xbuckets.storage.cloudcarbonfootprint.org   True          True      107s
 
 
-# Install the Compositions
+# Install the Compositions which have the CO2e and a carbon-footprint category
 kubectl create -f crds/compositions.yaml
 # Verify
 kubectl get compositions
-NAME                                                     AGE
-xbuckets.high-co2.aws.storage.cloudcarbonfootprint.org   13s
-xbuckets.low-co2.aws.storage.cloudcarbonfootprint.org    13s
+NAME                                                           AGE
+xbuckets.ap-east-1.aws.storage.cloudcarbonfootprint.org        8s
+xbuckets.ap-northeast-1.aws.storage.cloudcarbonfootprint.org   8s
+xbuckets.ap-northeast-2.aws.storage.cloudcarbonfootprint.org   8s
+...
 
-# Install the Claim
+# Install the Claim requesting a bucket with a low carbon foot-print:
 kubectl create -f crds/claim-low.yaml
 
-# Verify XR and Bucket
-kubectl get managed,buckets
-NAME                                                           READY   SYNCED   AGE
-bucket.s3.aws.crossplane.io/my-low-carbon-bucket-fq7th-bk2fx   True    True     25s
-
-NAME                                                           READY   CONNECTION-SECRET   AGE
-bucket.storage.cloudcarbonfootprint.org/my-low-carbon-bucket   False                       25s
+# Verify the Bucket
+kubectl get buckets
+NAME                   ARN                                             CO2E          READY   CONNECTION-SECRET   AGE
+my-low-carbon-bucket   arn:aws:s3:::my-low-carbon-bucket-123-123       0.000008000   True                        39s
 
 # Show the ARN:
 kubectl get bucket.storage.cloudcarbonfootprint.org/my-aws-bucket -o json | jq .status.arn
