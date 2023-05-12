@@ -1,0 +1,27 @@
+What to optimize?
+* Consume less energy: Scale down, Write more efficient code ..
+* Let the energy you consume be more environmental friendly 
+
+With Cloud Carbon Crossplane you could: choose more efficient storage. Possibly depending on the use-case. e.g. testing.
+
+Self-service infrastrucutre so devs can spin things down
+
+Evaluate https://github.com/crossplane/crossplane/issues/967
+
+# TODOs
+- [ ] Readup CO2 friendly S3 buckets
+
+
+EC2 (compute)
+Lambda (compute)
+EBS (storage)
+RDS (compute & storage)
+S3 (storage)
+Elasticache (compute)
+
+
+https://doc.crds.dev/github.com/luebken/cloud-carbon-crossplane
+https://noti.st/holly-cummins/FvH0U9/how-to-work-in-tech-and-not-wreck-the-planet#s7Rdqtv
+
+
+Power Usage Effectiveness (PUE). PUE is a score of how energy efficient a data center is, with the lowest possible score of 1 meaning all energy consumed goes directly to powering the servers and none is being wasted on cooling. 
